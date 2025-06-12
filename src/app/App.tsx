@@ -8,6 +8,7 @@ import { AccountsPage } from '../pages/account/AccountsPage';
 import { AccountsProvider } from '../shared/context/AccountsContext';
 import { Header } from '../shared/ui/Header';
 import styles from './App.module.css'
+import { AccountDetailsPage } from '../pages/account/AccountDetailPage';
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
                 <Route path="/accounts" element={<ProtectedRoute><AccountsPage /></ProtectedRoute>} />
+                <Route path="/accounts/:id" element={<AccountDetailsPage />} />
               </Routes>
             </AccountsProvider>
           </main>

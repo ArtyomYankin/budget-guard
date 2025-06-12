@@ -33,28 +33,30 @@
   gap: 1.5rem;
 }
 
-
 .accountCard {
-  padding: 1.5rem;
-  background: #2a2438;
+  padding: 15px;
+  border: 1px solid #5a5475;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
+  background: #2a2438;
+  color: #e0d6ed;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .accountCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: #9a86a4;
+}
+
+.accountCard:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(154, 134, 164, 0.5);
 }
 
 .accountCard h3 {
   color: #d0c4e0;
   margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.accountCard p {
-  margin: 0.5rem 0;
-  color: #b8b2c9;
 }
 
 .loading {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAccounts } from '../../shared/context/AccountsContext';
 import { Currency } from '../../features/auth/api/types';
 import { useAuth } from '../../shared/context/AuthContext';
@@ -9,8 +10,8 @@ export const AccountsPage = () => {
   const { accounts, fetchAccounts, isLoading, error } = useAccounts();
   const { user } = useAuth();
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
 
-  // Загрузка счетов при монтировании и при изменении пользователя
   useEffect(() => {
     if (user?.id) {
       fetchAccounts(user.id);
@@ -40,7 +41,7 @@ export const AccountsPage = () => {
         <CreateAccountForm 
           onSuccess={() => {
             setShowForm(false);
-            if (user?.id) fetchAccounts(user.id); // Обновляем список после создания
+            if (user?.id) fetchAccounts(user.id);
           }} 
           onCancel={() => setShowForm(false)}
         />
@@ -49,7 +50,14 @@ export const AccountsPage = () => {
       <div className={styles.accountsList}>
         {accounts.length > 0 ? (
           accounts.map(account => (
-            <div key={account.id} className={styles.accountCard}>
+            <div 
+              key={account.id} 
+              className={styles.accountCard}
+              onClick={() => navigate(`/accounts/${account.id}`)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(`/accounts/${account.id}`)}
+            >
               <h3>{account.name}</h3>
               <p>Баланс: {account.currentBalance} {Currency[account.currency]}</p>
               <p>Статус: {account.isActive ? 'Активен' : 'Неактивен'}</p>
