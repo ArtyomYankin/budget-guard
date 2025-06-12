@@ -1,0 +1,83 @@
+.accountsPage {
+  padding: 2rem;
+  background: #1a1625;
+  min-height: 100vh;
+  color: #e0d6ed;
+}
+
+.accountsPage h1 {
+  color: #e0d6ed;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.addAccountBtn {
+  padding: 0.75rem 1.5rem;
+  background: #5a5475;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.addAccountBtn:hover {
+  background: #6a5d7b;
+}
+
+.accountsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+
+.accountCard {
+  padding: 1.5rem;
+  background: #2a2438;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.accountCard:hover {
+  transform: translateY(-2px);
+}
+
+.accountCard h3 {
+  color: #d0c4e0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.accountCard p {
+  margin: 0.5rem 0;
+  color: #b8b2c9;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #9a86a4;
+  font-size: 1.1rem;
+}
+
+.error {
+  padding: 1rem;
+  background: #3a1c2e;
+  color: #ff9bb3;
+  border-radius: 4px;
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.noAccounts {
+  text-align: center;
+  color: #9a86a4;
+  grid-column: 1 / -1;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
